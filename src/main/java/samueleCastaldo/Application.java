@@ -44,8 +44,17 @@ public class Application {
         //test Esercizio 3, ricerca per prezzo inferiore mi restituisce una lista di Gioco
         try {
             List<Gioco> risultatoEsercizio3 = collezione.ricercaPrezzoInferiore(30);
-            System.out.println();
+            System.out.println("\nEsercizio numero 3");
             risultatoEsercizio3.forEach(System.out::println);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+
+        //test Esercizio 4, ricerca per numero di giocatori quindi è riferito a giochi da tavolo
+        try {
+            List<GiocoDaTavolo> risultatoEsercizio4 = collezione.ricercaNumeroGiocatori(4);
+            System.out.println("\nEsercizio numero 4");
+            risultatoEsercizio4.forEach(System.out::println);
         } catch (IllegalArgumentException error) {
             System.out.println(error.getMessage());
         }
