@@ -65,6 +65,17 @@ public class Application {
                       System.out.println(error.getMessage());
                   }
                   break;
+              case 3:
+                  //ricerca per prezzo inferiore
+                  System.out.print("Ricerca per prezzo inferiore, Inserisci un prezzo (double): ");
+                  double prezzo = scanner.nextDouble();
+                  try {
+                      List<Gioco> risultato = collezione.ricercaPrezzoInferiore(prezzo);
+                      risultato.forEach(System.out::println);
+                  } catch (IllegalArgumentException error) {
+                      System.out.println(error.getMessage());
+                  }
+                  break;
               case 8:
                   System.out.println("\nRisultato operazione 8: ");
                   collezione.getGiochi().forEach(System.out::println);
