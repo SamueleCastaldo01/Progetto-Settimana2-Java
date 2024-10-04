@@ -69,6 +69,17 @@ public class Collezione {
         }
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------
+    //Esercizio 5, Rimozione tramite un codice ID. In questo coso lo posso fare con un void, con la conferma
+    public void rimozioneGioco (long id) {
+        boolean rimosso = giochi.removeIf(game -> game.getIdGioco() == id); //questo metodo mi permette direttamente di rimuovere l'elemento se lo trova
+        System.out.println("\nEsercizio 5");
+        if(!rimosso) {  //se non lo trova lancia un'eccezione
+            throw new IllegalArgumentException("Nessun id trovato: " + id);
+        } else {  //messaggio di conferma che è stato eliminato correttamente
+            System.out.println("Il gioco è stato eliminato correttamente (id) " +id);
+        }
+    }
 
 
 }

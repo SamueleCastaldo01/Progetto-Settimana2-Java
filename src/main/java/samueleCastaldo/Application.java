@@ -59,6 +59,12 @@ public class Application {
             System.out.println(error.getMessage());
         }
 
+        //test Esercizio 5, eliminazione di un gioco tramite id.
+        try {
+            collezione.rimozioneGioco(1);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
 
     }
 }
