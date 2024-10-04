@@ -23,6 +23,19 @@ public class Collezione {
 
     }
 
+    //Esercizio 2 ricerca per ID
+    public void ricercaID (long id) {
+        // vado a fare il filter e va a prendere l'elemento con lo stesso id, metto il limit tanto l'id è univoco
+        List<Gioco> giocoTrovato = giochi.stream().filter(game -> game.getIdGioco() == id).limit(1).toList();
+        System.out.println();
+        if(!giocoTrovato.isEmpty()) {  //controllo tramite se la lista è vuota o meno
+            Gioco trovato = giocoTrovato.getFirst();  //andiamo a prendere il primo elemento, tanto ne abbiamo solo 1
+            System.out.println("titolo: " + trovato.getTitolo() + " ID: " + trovato.getIdGioco());
+        } else {  //Se la lista è vuota allora abbiamo l'eccezione
+            throw new IllegalArgumentException("Il gioco non esiste: " +id);
+        }
+
+    }
 
 
 
