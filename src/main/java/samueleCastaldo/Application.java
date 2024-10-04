@@ -54,8 +54,19 @@ public class Application {
           switch (scelta) {
               case 0:
                   System.out.println("Chiusura del programma in corso...");
+                  break;
+              case 2:
+                  //ricerca per id
+                  System.out.print("Ricerca per id, Inserisci un id (long): ");
+                  long id = scanner.nextLong();
+                  try{
+                      collezione.ricercaID(id);
+                  } catch (IllegalArgumentException error) {
+                      System.out.println(error.getMessage());
+                  }
+                  break;
               case 8:
-                  System.out.println("Risultato operazione 8: ");
+                  System.out.println("\nRisultato operazione 8: ");
                   collezione.getGiochi().forEach(System.out::println);
                   break;
 
