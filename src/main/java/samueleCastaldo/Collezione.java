@@ -14,15 +14,14 @@ public class Collezione {
 
     //Esercizio1 aggiungi gioco l'elemento Id deve essere univoco, quindi devo fare il controllo, prima di inserirlo
     public void aggiungiGioco (Gioco gioco) {
-        for(Gioco g : giochi) {   //vado a fare il controllo, quindi devo ciclare tutta la lista giochi
-            if(g.getIdGioco() == gioco.getIdGioco()) { //controllo id se sono uguali
-                throw new IllegalArgumentException("Questo id esite già: " + gioco.getIdGioco()); //eccezione, esce dal metodo
-            }
+        boolean idEsistente = giochi.stream().anyMatch(game -> game.getIdGioco() == gioco.getIdGioco());
+        if(idEsistente) {
+            throw new IllegalArgumentException("questo id esiste già: " + gioco.getIdGioco());
+        } else {
+            giochi.add(gioco);  //aggiunge il gioco alla lista
         }
-        giochi.add(gioco);  //aggiunge il gioco alla lista
+
     }
-
-
 
 
 
