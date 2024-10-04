@@ -150,6 +150,60 @@ public class Application {
                       System.out.println(error.getMessage());
                   }
                   break;
+              case 6:
+                  //aggiornamento gioco tramite id
+                  System.out.println("\nAggiorna gioco");
+                  System.out.print("Inserisci l'id del gioco che vuoi aggiornare (long): ");
+                  long idGioco1 = scanner.nextLong();
+                  scanner.nextLine();
+                  System.out.print("Seleziona il tipo di gioco: 1. VideoGioco, 2. Gioco da tavolo: ");
+                  int tipoGioco1 = scanner.nextInt();
+                  scanner.nextLine();
+
+                  //questi sono i dati base, che entrambe le tipologie hanno
+                  System.out.print("Inserisci il titolo del gioco (String): ");
+                  String titoloGioco1 = scanner.nextLine();
+                  System.out.print("Inserisci l'anno di produzione (String): ");
+                  String annoDiProduzioneGioco1 = scanner.nextLine();
+                  System.out.print("Inserisci il prezzo del gioco (double): ");
+                  double prezzoGioco1 = scanner.nextDouble();
+                  scanner.nextLine();
+
+                  //gestione del tipo di gioco
+                  if(tipoGioco1 == 1) {  //caso in cui sia un videogioco
+                      System.out.print("Inserisci la piattaforma (String): ");
+                      String piattaformaGioco = scanner.nextLine();
+                      System.out.print("Inserisci la durata di gioco in ore (int): ");
+                      int durataDiGioco = scanner.nextInt();
+                      scanner.nextLine(); //dopo ogni next int conviene usare questa
+                      System.out.print("Inserisci il genere del videogioco (AVVENTURA, AZIONE, SPORT): ");
+                      String genereInput = scanner.nextLine();
+                      Videogioco.Genere genereGioco = Videogioco.Genere.valueOf(genereInput.toUpperCase());
+
+                      //creazione del videogioco
+                      Videogioco nuovoVideogioco = new Videogioco(idGioco1, titoloGioco1, annoDiProduzioneGioco1, prezzoGioco1, piattaformaGioco, durataDiGioco, genereGioco);
+                      try{
+                          collezione.aggiornaGioco(idGioco1 ,nuovoVideogioco);
+                      } catch (IllegalArgumentException error) {
+                          System.out.println(error.getMessage());
+                      }
+                  } else if (tipoGioco1 == 2) { //caso in cui sia un gioco da tavolo
+                      System.out.print("Inserisci il numero di giocatori da 2 a 10 (int): ");
+                      int numeroGiocatoriGioco = scanner.nextInt();
+                      System.out.print("Inserisci  la durata media del gioco in minuti (int): ");
+                      int durataMediaPartita = scanner.nextInt();
+
+                      //creazione gioco da tavolo
+                      GiocoDaTavolo nuovoGiocoDaTavolo = new GiocoDaTavolo(idGioco1, titoloGioco1, annoDiProduzioneGioco1, prezzoGioco1, numeroGiocatoriGioco, durataMediaPartita);
+                      try{
+                          collezione.aggiornaGioco(idGioco1 ,nuovoGiocoDaTavolo);
+                      } catch (IllegalArgumentException error) {
+                          System.out.println(error.getMessage());
+                      }
+                  } else {  //nel caso in cui non si selezioni ne 1 ne 2
+                      System.out.println("tipo di gioco non valido");
+                  }
+                  break;
               case 7:
                   //statistiche lista collezione
                   try {
