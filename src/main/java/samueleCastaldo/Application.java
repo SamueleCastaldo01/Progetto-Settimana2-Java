@@ -97,6 +97,14 @@ public class Application {
                       System.out.println(error.getMessage());
                   }
                   break;
+              case 7:
+                  //statistiche lista collezione
+                  try {
+                      collezione.statisticheGiochi();
+                  } catch (IllegalArgumentException error) {
+                      System.out.println(error.getMessage());
+                  }
+                  break;
               case 8:
                   System.out.println("\nRisultato operazione 8: ");
                   collezione.getGiochi().forEach(System.out::println);

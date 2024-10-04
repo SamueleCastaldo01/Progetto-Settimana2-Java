@@ -87,6 +87,7 @@ public class Collezione {
         }
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------
     //Esercizio 6, aggiornamento di un elemento tramite ID, mi basta utilizzare la rimozioneGioco per quel id, e dopo aggiungere tramite metodo
     //non vado ad usare la rimozione gioco, perché lo ho gestito diversamente, ma vado a prendere lo stesso stream
     //in caso di successo quindi viene cancellato, con lo stesso id vado a crea anche un nuovo gioco, in questo modo si aggiorna
@@ -104,20 +105,28 @@ public class Collezione {
         }
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------
     //Esercizio 7,Statistiche collezione: stampa il numero totale di videogiochi e giochi da tavolo presenti. Il gioco con prezzo più alto
     //la media dei prezzi di tutti gli elementi.
     public void statisticheGiochi() {
+        if (giochi.isEmpty()) { //Stesso controllo rispetto ai precedenti
+            throw new IllegalArgumentException("La lista è vuota");
+        }
+
         //numero totale di giochi
         long numeroGiochi = giochi.size();
 
         //max prezzo
-        OptionalDouble maxPrezzo = giochi.stream().mapToDouble(game -> game.getPrezzo()).max(); //orElse se la lista è vuota non trova nulla
+        double maxPrezzo = giochi.stream().mapToDouble(game -> game.getPrezzo()).max().orElseThrow(); //orElse se la lista è vuota non trova nulla
 
         //media prezzi
-        OptionalDouble averagePrezzi = giochi.stream().mapToDouble(game -> game.getPrezzo()).average(); //media
+        double averagePrezzi = giochi.stream().mapToDouble(game -> game.getPrezzo()).average().orElseThrow(); //media
+
+        //il controllo in questo caso lo fa giaà all'inizio va a verificare se la lista è vuolta
+        //se non è vuota il max e la media non dovrebbero avere nessun problema
 
         System.out.println("\nEsercizio 7");
-        System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ;media Prezzi: " + averagePrezzi);
+        System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ; media Prezzi: " + averagePrezzi);
     }
 
 
