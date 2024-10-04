@@ -22,15 +22,24 @@ public class Application {
                 new GiocoDaTavolo(7, "Cluedo", "1974", 29.99, 4, 120)
         );
 
-
+      //test esercizio 1. Aggiunta dei giochi, io lo ho fatto tramite lista, per testare
       for (Gioco g : listaProva) { //vado ad iterare la lista di prova per aggiungere a collezione
           try{
               collezione.aggiungiGioco(g); //vado ad richiamare il metodo aggiungi, in un blocco try, perché dall'altro lato ho gestisto l'eccezione
-          } catch (IllegalArgumentException errore) {
-              System.out.println(errore.getMessage());
+          } catch (IllegalArgumentException error) {
+              System.out.println(error.getMessage());
           }
       }
 
+      //test Esercizio 2, ricerca giochi tramite ID
+        try{
+            collezione.ricercaID(1);
+            collezione.ricercaID(2);
+            //collezione.ricercaID(8);  //in questo caso non è presente, in questo caso attualmente si arresta il programma
+            collezione.ricercaID(3);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
 
 
     }
