@@ -79,6 +79,7 @@ public class Application {
                       String piattaformaGioco = scanner.nextLine();
                       System.out.print("Inserisci la durata di gioco in ore (int): ");
                       int durataDiGioco = scanner.nextInt();
+                      scanner.nextLine(); //dopo ogni next int conviene usare questa
                       System.out.print("Inserisci il genere del videogioco (AVVENTURA, AZIONE, SPORT): ");
                       String genereInput = scanner.nextLine();
                       Videogioco.Genere genereGioco = Videogioco.Genere.valueOf(genereInput.toUpperCase());
