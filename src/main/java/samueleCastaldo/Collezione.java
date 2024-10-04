@@ -2,11 +2,13 @@ package samueleCastaldo;
 
 import samueleCastaldo.giochi.Gioco;
 import samueleCastaldo.giochi.GiocoDaTavolo;
+import samueleCastaldo.giochi.Videogioco;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 
 public class Collezione {
     private List<Gioco> giochi;
@@ -39,7 +41,7 @@ public class Collezione {
         System.out.println();
         if(!giocoTrovato.isEmpty()) {  //controllo tramite se la lista è vuota o meno
             Gioco trovato = giocoTrovato.getFirst();  //andiamo a prendere il primo elemento, tanto ne abbiamo solo 1
-            System.out.println("titolo: " + trovato.getTitolo() + " ID: " + trovato.getIdGioco());
+            System.out.println("titolo: " + trovato.getTitolo() + "; ID: " + trovato.getIdGioco());
         } else {  //Se la lista è vuota allora abbiamo l'eccezione
             throw new IllegalArgumentException("Il gioco non esiste: " +id);
         }
@@ -127,9 +129,8 @@ public class Collezione {
         //se non è vuota il max e la media non dovrebbero avere nessun problema
         //volendo potrei aggiungere anche altri metodi (sarebbe interessante un groupBy), però mi attengo alla traccia e basta
 
-        System.out.println("\nEsercizio 7");
+        System.out.println("\n------------------");
+        System.out.println("Esercizio 7");
         System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ; media Prezzi: " + averagePrezzi);
     }
-
-
 }

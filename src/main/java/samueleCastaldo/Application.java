@@ -36,7 +36,8 @@ public class Application {
 
       int scelta = 0;
       do{
-          System.out.println("\nMenu operazioni: ");
+          System.out.println("\n-------------------------------------------------------------------------");
+          System.out.println("Menu operazioni: ");
           System.out.println("1. Aggiungi Gioco;");
           System.out.println("2. Ricerca gioco per ID;");
           System.out.println("3. Ricerca per prezzo Inferiore;");
@@ -56,7 +57,8 @@ public class Application {
                   System.out.println("Chiusura del programma in corso...");
                   break;
               case 1:
-                  System.out.println("\nAggiungi gioco");
+                  System.out.println("\n------------------");
+                  System.out.println("Aggiungi gioco");
                   System.out.print("Seleziona il tipo di gioco: 1. VideoGioco, 2. Gioco da tavolo: ");
                   int tipoGioco = scanner.nextInt();
                   scanner.nextLine();
@@ -110,7 +112,8 @@ public class Application {
                   break;
               case 2:
                   //ricerca per id
-                  System.out.print("\nRicerca per id, Inserisci un id (long): ");
+                  System.out.println("\n------------------");
+                  System.out.print("Ricerca per id, Inserisci un id (long): ");
                   long id = scanner.nextLong();
                   try{
                       collezione.ricercaID(id);
@@ -120,7 +123,8 @@ public class Application {
                   break;
               case 3:
                   //ricerca per prezzo inferiore
-                  System.out.print("\nRicerca per prezzo inferiore, Inserisci un prezzo (double): ");
+                  System.out.println("\n------------------");
+                  System.out.print("Ricerca per prezzo inferiore, Inserisci un prezzo (double): ");
                   double prezzo = scanner.nextDouble();
                   try {
                       List<Gioco> risultato = collezione.ricercaPrezzoInferiore(prezzo);
@@ -131,7 +135,8 @@ public class Application {
                   break;
               case 4:
                   //ricerca per numero di giocatori
-                  System.out.print("\nRicerca per numero di giocatori, Inserisci numero di giocatori (int) da 2 a 10: ");
+                  System.out.println("\n------------------");
+                  System.out.print("Ricerca per numero di giocatori, Inserisci numero di giocatori (int) da 2 a 10: ");
                   int numeroDiGiocatori = scanner.nextInt();
                   try{
                       List<GiocoDaTavolo> risultato = collezione.ricercaNumeroGiocatori(numeroDiGiocatori);
@@ -142,7 +147,8 @@ public class Application {
                   break;
               case 5:
                   //rimozione gioco tramite id
-                  System.out.print("\nRimozione gioco tramite id, Inserisci un id (long): ");
+                  System.out.println("\n------------------");
+                  System.out.print("Rimozione gioco tramite id, Inserisci un id (long): ");
                   long idRemove = scanner.nextLong();
                   try {
                       collezione.rimozioneGioco(idRemove);
@@ -152,7 +158,8 @@ public class Application {
                   break;
               case 6:
                   //aggiornamento gioco tramite id
-                  System.out.println("\nAggiorna gioco");
+                  System.out.println("\n------------------");
+                  System.out.println("Aggiorna gioco");
                   System.out.print("Inserisci l'id del gioco che vuoi aggiornare (long): ");
                   long idGioco1 = scanner.nextLong();
                   scanner.nextLine();
@@ -213,7 +220,8 @@ public class Application {
                   }
                   break;
               case 8:
-                  System.out.println("\nRisultato operazione 8: ");
+                  System.out.println("\n------------------");
+                  System.out.println("Risultato operazione 8: ");
                   collezione.getGiochi().forEach(System.out::println);
                   break;
 
