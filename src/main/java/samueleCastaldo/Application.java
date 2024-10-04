@@ -55,9 +55,61 @@ public class Application {
               case 0:
                   System.out.println("Chiusura del programma in corso...");
                   break;
+              case 1:
+                  System.out.println("\nAggiungi gioco");
+                  System.out.print("Seleziona il tipo di gioco: 1. VideoGioco, 2. Gioco da tavolo: ");
+                  int tipoGioco = scanner.nextInt();
+                  scanner.nextLine();
+
+                  //questi sono i dati base, che entrambe le tipologie hanno
+                  System.out.print("Inserisci l'id (long): ");
+                  long idGioco = scanner.nextLong();
+                  scanner.nextLine();
+                  System.out.print("Inserisci il titolo del gioco (String): ");
+                  String titoloGioco = scanner.nextLine();
+                  System.out.print("Inserisci l'anno di produzione (String): ");
+                  String annoDiProduzioneGioco = scanner.nextLine();
+                  System.out.print("Inserisci il prezzo del gioco (double): ");
+                  double prezzoGioco = scanner.nextDouble();
+                  scanner.nextLine();
+
+                  //gestione del tipo di gioco
+                  if(tipoGioco == 1) {  //caso in cui sia un videogioco
+                      System.out.print("Inserisci la piattaforma (String): ");
+                      String piattaformaGioco = scanner.nextLine();
+                      System.out.print("Inserisci la durata di gioco in ore (int): ");
+                      int durataDiGioco = scanner.nextInt();
+                      System.out.print("Inserisci il genere del videogioco (AVVENTURA, AZIONE, SPORT): ");
+                      String genereInput = scanner.nextLine();
+                      Videogioco.Genere genereGioco = Videogioco.Genere.valueOf(genereInput.toUpperCase());
+
+                      //creazione del videogioco
+                      Videogioco nuovoVideogioco = new Videogioco(idGioco, titoloGioco, annoDiProduzioneGioco, prezzoGioco, piattaformaGioco, durataDiGioco, genereGioco);
+                      try{
+                          collezione.aggiungiGioco(nuovoVideogioco);
+                      } catch (IllegalArgumentException error) {
+                          System.out.println(error.getMessage());
+                      }
+                  } else if (tipoGioco == 2) { //caso in cui sia un gioco da tavolo
+                      System.out.print("Inserisci il numero di giocatori da 2 a 10 (int): ");
+                      int numeroGiocatoriGioco = scanner.nextInt();
+                      System.out.print("Inserisci  la durata media del gioco in minuti (int): ");
+                      int durataMediaPartita = scanner.nextInt();
+
+                      //creazione gioco da tavolo
+                      GiocoDaTavolo nuovoGiocoDaTavolo = new GiocoDaTavolo(idGioco, titoloGioco, annoDiProduzioneGioco, prezzoGioco, numeroGiocatoriGioco, durataMediaPartita);
+                      try{
+                          collezione.aggiungiGioco(nuovoGiocoDaTavolo);
+                      } catch (IllegalArgumentException error) {
+                          System.out.println(error.getMessage());
+                      }
+                  } else {  //nel caso in cui non si selezioni ne 1 ne 2
+                      System.out.println("tipo di gioco non valido");
+                  }
+                  break;
               case 2:
                   //ricerca per id
-                  System.out.print("Ricerca per id, Inserisci un id (long): ");
+                  System.out.print("\nRicerca per id, Inserisci un id (long): ");
                   long id = scanner.nextLong();
                   try{
                       collezione.ricercaID(id);
@@ -67,7 +119,7 @@ public class Application {
                   break;
               case 3:
                   //ricerca per prezzo inferiore
-                  System.out.print("Ricerca per prezzo inferiore, Inserisci un prezzo (double): ");
+                  System.out.print("\nRicerca per prezzo inferiore, Inserisci un prezzo (double): ");
                   double prezzo = scanner.nextDouble();
                   try {
                       List<Gioco> risultato = collezione.ricercaPrezzoInferiore(prezzo);
@@ -78,7 +130,7 @@ public class Application {
                   break;
               case 4:
                   //ricerca per numero di giocatori
-                  System.out.print("Ricerca per numero di giocatori, Inserisci numero di giocatori (int) da 2 a 10: ");
+                  System.out.print("\nRicerca per numero di giocatori, Inserisci numero di giocatori (int) da 2 a 10: ");
                   int numeroDiGiocatori = scanner.nextInt();
                   try{
                       List<GiocoDaTavolo> risultato = collezione.ricercaNumeroGiocatori(numeroDiGiocatori);
@@ -89,7 +141,7 @@ public class Application {
                   break;
               case 5:
                   //rimozione gioco tramite id
-                  System.out.print("Rimozione gioco tramite id, Inserisci un id (long): ");
+                  System.out.print("\nRimozione gioco tramite id, Inserisci un id (long): ");
                   long idRemove = scanner.nextLong();
                   try {
                       collezione.rimozioneGioco(idRemove);
@@ -111,7 +163,7 @@ public class Application {
                   break;
 
               default:
-                  System.out.println("Opzione non valida, Riprova");
+                  System.out.println("\nOpzione non valida, Riprova");
           }
 
       }while(scelta != 0);

@@ -27,6 +27,7 @@ public class Collezione {
             throw new IllegalArgumentException("questo id esiste già: " + gioco.getIdGioco());
         } else {
             giochi.add(gioco);  //aggiunge il gioco alla lista
+            System.out.println("Gioco aggiunto con successo");
         }
     }
 
