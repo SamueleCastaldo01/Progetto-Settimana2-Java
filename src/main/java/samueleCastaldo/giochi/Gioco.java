@@ -44,4 +44,13 @@ public abstract class Gioco {
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
+
+    public String toString() {
+        return "Gioco{" +
+                "idGioco=" + idGioco +
+                ", titolo='" + titolo + '\'' +
+                ", annoDiPubblicazione='" + annoDiPubblicazione + '\'' +
+                ", prezzo=" + prezzo +
+                '}';
+    }
 }

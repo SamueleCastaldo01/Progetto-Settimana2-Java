@@ -52,4 +52,13 @@ public class Videogioco  extends Gioco{
     public void setGenere(Genere genere) {
         this.genere = genere;
     }
+
+    public String toString() {
+        return "Videogioco{" +
+                "piattaforma='" + piattaforma + '\'' +
+                ", durataDiGioco=" + durataDiGioco +
+                ", genere=" + genere +
+                ", " + super.toString() + // Chiama toString() della classe padre
+                '}';
+    }
 }

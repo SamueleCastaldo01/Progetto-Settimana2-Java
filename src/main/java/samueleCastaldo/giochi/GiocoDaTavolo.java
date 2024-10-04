@@ -37,6 +37,7 @@ public class GiocoDaTavolo extends  Gioco{
         return "GiocoDaTavolo{" +
                 "numeroDiGiocatori=" + numeroDiGiocatori +
                 ", durataMediaPartita=" + durataMediaPartita +
+                ", " + super.toString() + // Chiama toString() della classe padre
                 '}';
     }
 }
