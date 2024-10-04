@@ -27,6 +27,7 @@ public class Videogioco  extends Gioco{
         this.genere = genere;
     }
 
+    //metodi get----------------------------------------------------
     public String getPiattaforma() {
         return piattaforma;
     }
@@ -39,6 +40,7 @@ public class Videogioco  extends Gioco{
         return genere;
     }
 
+    //metodi set--------------------------------------------------------
     public void setPiattaforma(String piattaforma) {
         this.piattaforma = piattaforma;
     }
