@@ -66,5 +66,15 @@ public class Application {
             System.out.println(error.getMessage());
         }
 
+        //test Esercizio 6, aggiornamento gioco, tramite id
+        GiocoDaTavolo giocoAggiornato = new GiocoDaTavolo(2, "Monopoly Deluxe", "1935", 39.99, 4, 120);
+        try{
+            collezione.aggiornaGioco(2, giocoAggiornato);
+            System.out.println();
+            collezione.getGiochi().forEach(System.out::println); //verifica della lista
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+
     }
 }

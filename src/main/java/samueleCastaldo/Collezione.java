@@ -13,6 +13,10 @@ public class Collezione {
         this.giochi = new ArrayList<>(); //in questo modo andiamo a creare una lista vuota
     }
 
+    public List<Gioco> getGiochi() {
+        return giochi;
+    }
+
     //----------------------------------------------------------------------------------------------------------------------------
     //Esercizio1 aggiungi gioco l'elemento Id deve essere univoco, quindi devo fare il controllo, prima di inserirlo
     public void aggiungiGioco (Gioco gioco) {
@@ -80,6 +84,24 @@ public class Collezione {
             System.out.println("Il gioco è stato eliminato correttamente (id) " +id);
         }
     }
+
+    //Esercizio 6, aggiornamento di un elemento tramite ID, mi basta utilizzare la rimozioneGioco per quel id, e dopo aggiungere tramite metodo
+    //non vado ad usare la rimozione gioco, perché lo ho gestito diversamente, ma vado a prendere lo stesso stream
+    //in caso di successo quindi viene cancellato, con lo stesso id vado a crea anche un nuovo gioco, in questo modo si aggiorna
+    //questa è la soluzione più veloce e più completa secondo il mio punto di vista.
+    //l'unico difetto è che perde la posizione, ma non credo che sia un groppo problema, tanto cmq devono essere ordinati
+    public void aggiornaGioco (long id, Gioco gioco) {
+        boolean rimosso = giochi.removeIf(game -> game.getIdGioco() == id);
+        System.out.println("\nEsercizio 6");
+        if(!rimosso) {  //nel caso in cui non trova l'id
+            throw new IllegalArgumentException("Id non trovato, non è possibile aggiornare il gioco: id: " + id);
+        } else {
+            gioco.setIdGioco(id); //qui gli andiamo a dare lo stesso id, nel caso in cui l'utente sbagliasse a mettere l'id quando inserisce il gioco da aggiornare
+            aggiungiGioco(gioco);  //vado a richiamare il metodo aggiungi Gioco. Qui in realtà potevo fare anche direttamente .add
+            System.out.println("Gioco aggiornato con successo");
+        }
+    }
+
 
 
 }
