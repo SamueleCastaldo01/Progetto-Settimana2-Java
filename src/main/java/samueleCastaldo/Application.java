@@ -76,6 +76,27 @@ public class Application {
                       System.out.println(error.getMessage());
                   }
                   break;
+              case 4:
+                  //ricerca per numero di giocatori
+                  System.out.print("Ricerca per numero di giocatori, Inserisci numero di giocatori (int) da 2 a 10: ");
+                  int numeroDiGiocatori = scanner.nextInt();
+                  try{
+                      List<GiocoDaTavolo> risultato = collezione.ricercaNumeroGiocatori(numeroDiGiocatori);
+                      risultato.forEach(System.out::println);
+                  } catch (IllegalArgumentException error) {
+                      System.out.println(error.getMessage());
+                  }
+                  break;
+              case 5:
+                  //rimozione gioco tramite id
+                  System.out.print("Rimozione gioco tramite id, Inserisci un id (long): ");
+                  long idRemove = scanner.nextLong();
+                  try {
+                      collezione.rimozioneGioco(idRemove);
+                  } catch (IllegalArgumentException error) {
+                      System.out.println(error.getMessage());
+                  }
+                  break;
               case 8:
                   System.out.println("\nRisultato operazione 8: ");
                   collezione.getGiochi().forEach(System.out::println);
