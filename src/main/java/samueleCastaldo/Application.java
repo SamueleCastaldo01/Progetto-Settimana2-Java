@@ -42,7 +42,7 @@ public class Application {
           System.out.println("3. Ricerca per prezzo Inferiore;");
           System.out.println("4. Ricerca per numero di giocatori;");
           System.out.println("5. Rimozione di un gioco tramite ID;");
-          System.out.println("6. Aggiornamento di gioco tramite ID;");
+          System.out.println("6. Aggiornamento di un gioco tramite ID;");
           System.out.println("7. Statistiche della lista collezione;");
           System.out.println("8. Visualizza lista collezione;");
           System.out.println("0. Termina programma;");
@@ -224,10 +224,7 @@ public class Application {
       }while(scelta != 0);
 
 
-
-
-
-
+     //questi sono tutti i test che ho fatto, per provare i vari metodi che andavo ad implementare
       /*
       //test Esercizio 2, ricerca giochi tramite ID
         try{

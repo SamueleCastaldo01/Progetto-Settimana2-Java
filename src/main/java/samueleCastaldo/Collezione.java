@@ -125,6 +125,7 @@ public class Collezione {
 
         //il controllo in questo caso lo fa giaà all'inizio va a verificare se la lista è vuolta
         //se non è vuota il max e la media non dovrebbero avere nessun problema
+        //volendo potrei aggiungere anche altri metodi (sarebbe interessante un groupBy), però mi attengo alla traccia e basta
 
         System.out.println("\nEsercizio 7");
         System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ; media Prezzi: " + averagePrezzi);
