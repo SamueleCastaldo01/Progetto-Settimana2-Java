@@ -5,6 +5,8 @@ import samueleCastaldo.giochi.GiocoDaTavolo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
 
 public class Collezione {
     private List<Gioco> giochi;
@@ -102,6 +104,21 @@ public class Collezione {
         }
     }
 
+    //Esercizio 7,Statistiche collezione: stampa il numero totale di videogiochi e giochi da tavolo presenti. Il gioco con prezzo più alto
+    //la media dei prezzi di tutti gli elementi.
+    public void statisticheGiochi() {
+        //numero totale di giochi
+        long numeroGiochi = giochi.size();
+
+        //max prezzo
+        OptionalDouble maxPrezzo = giochi.stream().mapToDouble(game -> game.getPrezzo()).max(); //orElse se la lista è vuota non trova nulla
+
+        //media prezzi
+        OptionalDouble averagePrezzi = giochi.stream().mapToDouble(game -> game.getPrezzo()).average(); //media
+
+        System.out.println("\nEsercizio 7");
+        System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ;media Prezzi: " + averagePrezzi);
+    }
 
 
 }

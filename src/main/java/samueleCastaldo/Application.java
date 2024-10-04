@@ -76,5 +76,8 @@ public class Application {
             System.out.println(error.getMessage());
         }
 
+        //test Esercizio 7, statistiche
+        collezione.statisticheGiochi();
+
     }
 }
