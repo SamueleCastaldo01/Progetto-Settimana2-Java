@@ -38,6 +38,16 @@ public class Collezione {
     }
 
 
+    //Esercizio 3 ricerca per prezzo, deve ritornare una lista di giochi con prezzo inferiore al prezzo inserito
+    public List<Gioco> ricercaPrezzoInferiore (double prezzo) {
+        List<Gioco> risultati = giochi.stream().filter(game -> game.getPrezzo() < prezzo).toList();
+        if(!risultati.isEmpty()) {  //controllo tramite se la lista è vuota o meno, stesso controllo di sopra
+            return risultati;
+        } else {  //Se la lista è vuota allora abbiamo l'eccezione
+            throw new IllegalArgumentException("Non esiste un gioco con il prezzo inferiore a: " +prezzo);
+        }
+    }
+
 
 
 

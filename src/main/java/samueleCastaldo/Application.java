@@ -41,6 +41,15 @@ public class Application {
             System.out.println(error.getMessage());
         }
 
+        //test Esercizio 3, ricerca per prezzo inferiore mi restituisce una lista di Gioco
+        try {
+            List<Gioco> risultatoEsercizio3 = collezione.ricercaPrezzoInferiore(30);
+            System.out.println();
+            risultatoEsercizio3.forEach(System.out::println);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+
 
     }
 }
