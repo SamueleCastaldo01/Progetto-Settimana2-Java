@@ -4,10 +4,7 @@ import samueleCastaldo.giochi.Gioco;
 import samueleCastaldo.giochi.GiocoDaTavolo;
 import samueleCastaldo.giochi.Videogioco;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Collezione {
@@ -120,7 +117,9 @@ public class Collezione {
         long numeroGiochi = giochi.size();
 
         //max prezzo
-        double maxPrezzo = giochi.stream().mapToDouble(game -> game.getPrezzo()).max().orElseThrow(); //orElse se la lista è vuota non trova nulla
+        //double maxPrezzo = giochi.stream().mapToDouble(game -> game.getPrezzo()).max().orElseThrow(); //orElse se la lista è vuota non trova nulla
+        //gioco con il prezzo più alto
+        Gioco giocoMassimoPrezzo = giochi.stream().max(Comparator.comparingDouble(game -> game.getPrezzo())). orElseThrow();
 
         //media prezzi
         double averagePrezzi = giochi.stream().mapToDouble(game -> game.getPrezzo()).average().orElseThrow(); //media
@@ -131,6 +130,6 @@ public class Collezione {
 
         System.out.println("\n------------------");
         System.out.println("Esercizio 7");
-        System.out.println("Numero Giochi: " + numeroGiochi + "; maxPrezzo: " + maxPrezzo + " ; media Prezzi: " + averagePrezzi);
+        System.out.println("Numero Giochi: " + numeroGiochi + "; Gioco PrezzoMax: " + giocoMassimoPrezzo.getTitolo()  + " ; media Prezzi: " + averagePrezzi);
     }
 }
