@@ -22,6 +22,13 @@ public class Application {
         );
 
 
+      for (Gioco g : listaProva) { //vado ad iterare la lista di prova per aggiungere a collezione
+          try{
+              collezione.aggiungiGioco(g); //vado ad aggiungere, in un blocco try, perché dall'altro lato ho aggiunto un eccezzione
+          } catch (IllegalArgumentException errore) {
+              System.out.println(errore.getMessage());
+          }
+      }
 
 
 
