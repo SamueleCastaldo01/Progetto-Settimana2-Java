@@ -1,5 +1,6 @@
 package samueleCastaldo;
 
+import samueleCastaldo.giochi.Collezione;
 import samueleCastaldo.giochi.Gioco;
 import samueleCastaldo.giochi.GiocoDaTavolo;
 import samueleCastaldo.giochi.Videogioco;

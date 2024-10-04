@@ -1,11 +1,6 @@
-package samueleCastaldo;
-
-import samueleCastaldo.giochi.Gioco;
-import samueleCastaldo.giochi.GiocoDaTavolo;
-import samueleCastaldo.giochi.Videogioco;
+package samueleCastaldo.giochi;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Collezione {
     private List<Gioco> giochi;
