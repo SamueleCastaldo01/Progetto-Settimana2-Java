@@ -6,11 +6,13 @@ import samueleCastaldo.giochi.Videogioco;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Application {
 
     public static void main(String[] args) {
         Collezione collezione = new Collezione(); //creo l'oggetto collezione, (andrà a creare la lista vuota giochi)
+        Scanner scanner = new Scanner(System.in);
 
         List<Gioco> listaProva = Arrays.asList(
                 new Videogioco(1, "The Witcher 3", "2015", 49.99, "PC", 50, Videogioco.Genere.AVVENTURA),
@@ -22,6 +24,7 @@ public class Application {
                 new GiocoDaTavolo(7, "Cluedo", "1974", 29.99, 4, 120)
         );
 
+        //questo lo lascio in questo modo ho una lista di riferimento
       //test esercizio 1. Aggiunta dei giochi, io lo ho fatto tramite lista, per testare
       for (Gioco g : listaProva) { //vado ad iterare la lista di prova per aggiungere a collezione
           try{
@@ -31,6 +34,43 @@ public class Application {
           }
       }
 
+      int scelta = 0;
+      do{
+          System.out.println("\nMenu operazioni: ");
+          System.out.println("1. Aggiungi Gioco;");
+          System.out.println("2. Ricerca gioco per ID;");
+          System.out.println("3. Ricerca per prezzo Inferiore;");
+          System.out.println("4. Ricerca per numero di giocatori;");
+          System.out.println("5. Rimozione di un gioco tramite ID;");
+          System.out.println("6. Aggiornamento di gioco tramite ID;");
+          System.out.println("7. Statistiche della lista collezione;");
+          System.out.println("8. Visualizza lista collezione;");
+          System.out.println("0. Termina programma;");
+          System.out.print("\nSeleziona operazione: ");
+
+          scelta = scanner.nextInt();
+
+          //adesso faccio lo switch per andare ad utilizzare i vari metodi
+          switch (scelta) {
+              case 0:
+                  System.out.println("Chiusura del programma in corso...");
+              case 8:
+                  System.out.println("Risultato operazione 8: ");
+                  collezione.getGiochi().forEach(System.out::println);
+                  break;
+
+              default:
+                  System.out.println("Opzione non valida, Riprova");
+          }
+
+      }while(scelta != 0);
+
+
+
+
+
+
+      /*
       //test Esercizio 2, ricerca giochi tramite ID
         try{
             collezione.ricercaID(1);
@@ -78,6 +118,8 @@ public class Application {
 
         //test Esercizio 7, statistiche
         collezione.statisticheGiochi();
+       */
+
 
     }
 }
